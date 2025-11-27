@@ -1,0 +1,88 @@
+/* main format */ 
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    margin: 20px;
+    background-color: rgb(24, 24, 24);
+    color: rgb(255, 255, 255);
+}
+
+/* top links stick to the right */
+.navbar {
+    float: right;
+}
+
+/* making them pretty */
+
+.navbar a {
+    color:whitesmoke;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+.navbar a:hover {
+    color:  rgb(24, 24, 24);
+    background-color: whitesmoke;
+}
+
+/* title formatting */
+
+.title-div {
+    padding: 14px 16px;
+    padding-bottom: 5%;
+    padding-top: 50px;
+    font-size: xx-large;
+}
+
+/* making it pretty */
+
+.imgContainer {
+    margin: 10px;
+}
+
+section {
+    display: flex;
+    flex-wrap: wrap; /* allows images to wrap if needed */
+    width: 100%;
+}
+
+section + div {
+    clear: both;
+    width: 100%;
+}
+
+.link a{
+    color: whitesmoke;
+    text-decoration: none;
+}
+
+.link a:hover {
+    text-decoration: underline;
+    color:blue;
+}
+/* setting the font */
+@font-face {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+/* setting title animation */
+
+@keyframes float {
+    0% {
+        transform: translateY(0px);
+    }
+    50% {
+        transform: translateY(-20px);
+    }
+    100% {
+        transform: translateY(0px);
+    }
+}
+
+@keyframes rainbow {
+  0% {
+    background-position: 0 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
