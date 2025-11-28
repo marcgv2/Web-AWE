@@ -4,21 +4,325 @@ body {
     margin: 20px;
     background-color: rgb(24, 24, 24);
     color: rgb(255, 255, 255);
+    line-height: 1.6;
+    background-image:
+            radial-gradient(circle at 10% 20%, rgba(0, 255, 204, 0.05) 0%, transparent 20%),
+            radial-gradient(circle at 90% 80%, rgba(255, 0, 128, 0.05) 0%, transparent 20%);
 }
 
+/* top links stick to the right */
 .navbar {
     float: right;
+    margin-top: 20px;
+    margin-right: 20px;
+    position: relative;
+    z-index: 100;
 }
 
 /* making them pretty */
-
 .navbar a {
-    color:whitesmoke;
-    padding: 14px 16px;
+    color: whitesmoke;
+    padding: 12px 24px;
     text-decoration: none;
+    border-radius: 25px;
+    transition: all 0.3s ease;
+    font-weight: bold;
+    margin-left: 10px;
+    position: relative;
+    overflow: hidden;
+    background: rgba(40, 40, 40, 0.8);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.navbar a::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.1), transparent);
+    transition: left 0.6s;
+}
+
+.navbar a:hover::before {
+    left: 100%;
 }
 
 .navbar a:hover {
-    color:  rgb(24, 24, 24);
-    background-color: whitesmoke;
+    color: rgb(24, 24, 24);
+    background-color: #00ffcc;
+    transform: translateY(-3px);
+    box-shadow: 0 6px 15px rgba(0, 255, 204, 0.3);
+}
+
+/* title formatting */
+.page-header {
+    padding: 80px 20px 50px;
+    text-align: center;
+    clear: both;
+    margin-bottom: 50px;
+    position: relative;
+    background: rgba(30, 30, 30, 0.7);
+    border-radius: 15px;
+    margin-top: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.page-header::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, #00ffcc, #ff0080, transparent);
+    animation: headerGlow 3s ease-in-out infinite;
+}
+
+@keyframes headerGlow {
+    0%, 100% { opacity: 0.7; }
+    50% { opacity: 1; }
+}
+
+.page-header h1 {
+    font-size: 3.2rem;
+    margin-bottom: 20px;
+    background: linear-gradient(135deg, #00ffcc 0%, #ff0080 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: float 5s ease-in-out infinite;
+    text-shadow: 0 0 20px rgba(0, 255, 204, 0.3);
+    position: relative;
+}
+
+.page-header h1::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100px;
+    height: 3px;
+    background: linear-gradient(90deg, #ff0080, #00ffcc);
+    border-radius: 2px;
+}
+
+.page-header p {
+    font-size: 1.3rem;
+    max-width: 700px;
+    margin: 0 auto;
+    color: #cccccc;
+    line-height: 1.5;
+}
+
+/* section styling */
+section {
+    margin-bottom: 40px;
+    padding: 35px;
+    background: rgba(35, 35, 35, 0.8);
+    border-radius: 12px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
+    transition: all 0.4s ease;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    position: relative;
+    overflow: hidden;
+}
+
+section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(0, 255, 204, 0.03), transparent);
+    transition: left 0.8s;
+}
+
+section:hover::before {
+    left: 100%;
+}
+
+section:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5);
+    border-color: rgba(0, 255, 204, 0.2);
+}
+
+section h2 {
+    font-size: 2rem;
+    margin-bottom: 25px;
+    color: #00ffcc;
+    position: relative;
+    padding-bottom: 12px;
+    display: inline-block;
+}
+
+section h2::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 60px;
+    height: 4px;
+    background: linear-gradient(90deg, #ff0080, #00ffcc);
+    border-radius: 2px;
+    transition: width 0.3s ease;
+}
+
+section:hover h2::after {
+    width: 100px;
+}
+
+section p {
+    margin-bottom: 20px;
+    color: #e0e0e0;
+    font-size: 1.05rem;
+}
+
+section ul {
+    padding-left: 25px;
+    margin-bottom: 20px;
+}
+
+section li {
+    margin-bottom: 14px;
+    position: relative;
+    padding-left: 20px;
+    color: #e0e0e0;
+    transition: transform 0.2s ease;
+}
+
+section li:hover {
+    transform: translateX(5px);
+}
+
+section li::before {
+    content: '▸';
+    position: absolute;
+    left: 0;
+    color: #ff0080;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+section li:hover::before {
+    color: #00ffcc;
+}
+
+section strong {
+    color: #00ffcc;
+    font-weight: bold;
+    text-shadow: 0 0 8px rgba(0, 255, 204, 0.3);
+}
+
+/* setting the font */
+@font-face {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+/* setting title animation */
+@keyframes float {
+    0% {
+        transform: translateY(0px);
+    }
+    50% {
+        transform: translateY(-12px);
+    }
+    100% {
+        transform: translateY(0px);
+    }
+}
+
+@keyframes rainbow {
+    0% {
+        background-position: 0 0;
+    }
+    100% {
+        background-position: 200% 0;
+    }
+}
+
+/* Particle background effect */
+body::after {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image:
+            radial-gradient(2px 2px at 20px 30px, rgba(0, 255, 204, 0.3), transparent),
+            radial-gradient(2px 2px at 40px 70px, rgba(255, 0, 128, 0.3), transparent),
+            radial-gradient(1px 1px at 90px 40px, rgba(0, 255, 204, 0.3), transparent),
+            radial-gradient(1px 1px at 130px 80px, rgba(255, 0, 128, 0.3), transparent);
+    background-repeat: repeat;
+    background-size: 200px 200px;
+    opacity: 0.4;
+    z-index: -1;
+    animation: floatParticles 20s linear infinite;
+}
+
+@keyframes floatParticles {
+    0% { transform: translateY(0px); }
+    100% { transform: translateY(-200px); }
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    body {
+        margin: 10px;
+    }
+
+    .navbar {
+        float: none;
+        text-align: center;
+        margin: 10px 0 30px;
+    }
+
+    .navbar a {
+        display: inline-block;
+        margin: 5px;
+        padding: 10px 20px;
+    }
+
+    .page-header {
+        padding: 50px 15px 30px;
+        margin-bottom: 30px;
+    }
+
+    .page-header h1 {
+        font-size: 2.2rem;
+    }
+
+    .page-header p {
+        font-size: 1.1rem;
+    }
+
+    section {
+        padding: 25px 20px;
+    }
+
+    section h2 {
+        font-size: 1.6rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .page-header h1 {
+        font-size: 1.8rem;
+    }
+
+    section {
+        padding: 20px 15px;
+    }
+
+    section h2 {
+        font-size: 1.4rem;
+    }
+
+    section p, section li {
+        font-size: 0.95rem;
+    }
 }
